@@ -1,0 +1,22 @@
+body {
+    background-color: #EEF9BF;
+}
+header {
+    height: 150px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.jogo {
+    margin-left: 122px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
