@@ -4,20 +4,61 @@ function carregarPagina() {
         carregarPagina()
     }
     else {
+        let parrots = []
+        if (numeroCartas >= 4) {
+            parrots.push("<img src='Assets/bobrossparrot.gif'>")
+            parrots.push("<img src='Assets/bobrossparrot.gif'>")
+            parrots.push("<img src='Assets/explodyparrot.gif'>")
+            parrots.push("<img src='Assets/explodyparrot.gif'>")
+        }
+        if (numeroCartas >=6) {
+            parrots.push("<img src='Assets/fiestaparrot.gif'>")
+            parrots.push("<img src='Assets/fiestaparrot.gif'>")
+        }
+        if (numeroCartas >=8) {
+            parrots.push("<img src='Assets/metalparrot.gif'>")
+            parrots.push("<img src='Assets/metalparrot.gif'>")
+        }
+        if (numeroCartas >=10) {
+            parrots.push("<img src='Assets/revertitparrot.gif'>")
+            parrots.push("<img src='Assets/revertitparrot.gif'>")
+        }
+        if (numeroCartas >=12) {
+            parrots.push("<img src='Assets/tripletsparrot.gif'>")
+            parrots.push("<img src='Assets/tripletsparrot.gif'>")
+        }
+        if (numeroCartas >=14) {
+            parrots.push("<img src='Assets/unicornparrot.gif'>")
+            parrots.push("<img src='Assets/unicornparrot.gif'>")
+        }
+        parrots.sort(comparador)
         const board = document.querySelector(".jogo")
         board.innerHTML = ""
         for (let i=0;i<numeroCartas;i++) {
             board.innerHTML += `
-            <div class="card">
+            <div class="card" onclick="virarCarta(this)">
                 <div class="front-face face">
                     <img src="Assets/front.png">
                 </div>
                 <div class="back-face face">
-                    Verso
+                    ${parrots[i]}
                 </div>
             </div>
             `
         }
     }
+}
+function virarCarta(carta) {
+    let selecionados = []
+    carta.classList.add("selecionado")
+    selecionados = document.querySelectorAll(".selecionado")
+    if (selecionados.length === 2) {
+        for (let i=0;i<selecionados.length;i++) {
+            selecionados[i].classList.remove("selecionado")
+        }
+    }
+}
+function comparador() { 
+	return Math.random() - 0.5; 
 }
 carregarPagina()
