@@ -53,8 +53,18 @@ function virarCarta(carta) {
     carta.classList.add("selecionado")
     selecionados = document.querySelectorAll(".selecionado")
     if (selecionados.length === 2) {
-        for (let i=0;i<selecionados.length;i++) {
-            selecionados[i].classList.remove("selecionado")
+        if (selecionados[0].querySelector(".back-face").innerHTML !== selecionados[1].querySelector(".back-face").innerHTML) {
+            for (let i=0;i<selecionados.length;i++) {
+                selecionados[i].classList.remove("selecionado")
+            }
+        }
+        if (selecionados[0].querySelector(".back-face").innerHTML === selecionados[1].querySelector(".back-face").innerHTML) {
+            for (let i=0;i<selecionados.length;i++) {
+                selecionados[i].classList.remove("selecionado")
+            }
+            for (let i=0;i<selecionados.length;i++) {
+                selecionados[i].classList.add("acertado")
+            }
         }
     }
 }
