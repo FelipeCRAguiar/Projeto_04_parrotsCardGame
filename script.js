@@ -3,6 +3,7 @@ let paresCertos = []
 let numeroCartas = 0
 let jogadas = 0
 function carregarPagina() {
+    jogadas = 0
     numeroCartas = parseInt(prompt("Com quantas cartas você quer jogar? (Escolha um numero par entre 4 e 14)"))
     if ((numeroCartas<4 || numeroCartas>14 || numeroCartas%2!==0)) {
         carregarPagina()
@@ -84,5 +85,9 @@ function desvirar() {
 }
 function final() {
     alert(`Você ganhou em ${jogadas} jogadas!`)
+    let reiniciar = prompt("Você quer jogar de novo? sim ou nao")
+    if (reiniciar === "sim") {
+        carregarPagina()
+    }
 }
 carregarPagina()
