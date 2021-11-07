@@ -1,6 +1,9 @@
 let selecionados = []
+let paresCertos = []
+let numeroCartas = 0
+let jogadas = 0
 function carregarPagina() {
-    let numeroCartas = prompt("Com quantas cartas você quer jogar? (Escolha um numero par entre 4 e 14)")
+    numeroCartas = parseInt(prompt("Com quantas cartas você quer jogar? (Escolha um numero par entre 4 e 14)"))
     if ((numeroCartas<4 || numeroCartas>14 || numeroCartas%2!==0)) {
         carregarPagina()
     }
@@ -50,6 +53,7 @@ function carregarPagina() {
     }
 }
 function virarCarta(carta) {
+    jogadas++
     carta.classList.add("selecionado")
     selecionados = document.querySelectorAll(".selecionado")
     if (selecionados.length === 2) {
@@ -62,8 +66,12 @@ function virarCarta(carta) {
             }
             for (let i=0;i<selecionados.length;i++) {
                 selecionados[i].classList.add("acertado")
+                paresCertos = document.querySelectorAll(".acertado")
             }
         }
+    }
+    if (paresCertos.length === numeroCartas) {
+        setTimeout(final, 500)
     }
 }
 function comparador() { 
@@ -73,5 +81,8 @@ function desvirar() {
     for (let i=0;i<selecionados.length;i++) {
         selecionados[i].classList.remove("selecionado")
     }
+}
+function final() {
+    alert(`Você ganhou em ${jogadas} jogadas!`)
 }
 carregarPagina()
