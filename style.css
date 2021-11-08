@@ -12,11 +12,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 .jogo {
-    padding-left: 119px;
-    padding-right: 119px;
+    margin-left: 119px;
+    margin-right: 119px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -63,4 +62,14 @@ header {
 }
 .acertado .front-face {
     transform: rotateY(-180deg);
+}
+@media (max-width: 335px) {
+    header {
+        font-size: 36px;
+        line-height: 42px;
+    }
+    .jogo {
+        margin-left: 109px;
+        margin-right: 109px;
+    }
 }
