@@ -41,11 +41,11 @@ function carregarPagina() {
         board.innerHTML = ""
         for (let i=0;i<numeroCartas;i++) {
             board.innerHTML += `
-            <div class="card" onclick="virarCarta(this)">
-                <div class="front-face face">
+            <div class="card" onclick="virarCarta(this)" data-identifier="card">
+                <div class="front-face face" data-identifier="front-face">
                     <img src="Assets/front.png">
                 </div>
-                <div class="back-face face">
+                <div class="back-face face" data-identifier="back-face">
                     ${parrots[i]}
                 </div>
             </div>
